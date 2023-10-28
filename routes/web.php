@@ -1,3 +1,4 @@
+<!-- ルーティングのファイル -->
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -14,10 +15,16 @@ use App\Http\Controllers\GoalController;
 |
 */
 
+/*↓ルーティング設定のファイルなので、
+   アクセスするURL、その際に実行されるコントローラのアクションを記述
+   アクセスするURLは、localhost/laravel-todo-app/public の次にくるパス名を決定し、記述。
+   このURLにアクセスしたときは〇〇コントローラの□□アクションを実行する、と設定される
+   ↓だったらlocalhost/laravel-todo-app/public/ を指定している（publicの後に「/」を設定している）*/
 Route::get('/', [GoalController::class, 'index']);
 
 Auth::routes();
 
+// ↓だったらlocalhost/laravel-todo-app/public/home を指定している。
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('goals', GoalController::class)->only(['index', 'store', 'update', 'destroy']);
