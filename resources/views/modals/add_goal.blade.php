@@ -1,3 +1,4 @@
+<!-- 目標の追加モーダル -->
 <div class="modal fade" id="addGoalModal" tabindex="-1" aria-labelledby="addGoalModalLabel">
      <div class="modal-dialog">
          <div class="modal-content">

@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Goal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;  
+/* ↑ Authファサードを利用することで、「現在ログイン中のユーザー」を取得
+     Authファサードは、クラスをインスタンス化しなくても、
+     現在ログイン中のユーザー（Userモデルのインスタンス）を取得できる。
+*/
 
 class GoalController extends Controller
 {
@@ -16,7 +20,7 @@ class GoalController extends Controller
      */
     public function index()
     {
-        $goals = Auth::user()->goals;
+        $goals = Auth::user()->goals;  // ←現在ログイン中のユーザーが持つ目標をすべて取得　 ↑（上の方）にAuthファサードの使用宣言をしているため。
  
         return view('goals.index', compact('goals'));
     }
