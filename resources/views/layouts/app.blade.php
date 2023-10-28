@@ -1,4 +1,10 @@
-<!-- 認証機能　ログインのページ -->
+<!-- 
+認証機能　ログインのページ 
+このファイルは、Laravel UIとBootstrapをインストールし、認証機能作成と同時にインストールしたもの
+https://terakoya.sejuku.net/programs/88/chapters/1057
+3.4 Bootstrapと認証機能用の各種ファイルをインストール 
+-->
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -20,13 +26,14 @@
 
 <body style="padding: 60px 0;">
     <div id="app">
-        @include('layouts.header')
+        <!--↓ atマークinclude＝他のビューファイルを呼び出すディレクティブ。
+              引数には［フォルダ名+ファイル名の省略形］を書く -->
+        @include('layouts.header')  <!--部品化したヘッダーを呼びだす -->
+            <main class="py-4">
+              @yield('content')
+            </main>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-
-        @include('layouts.footer')
+        @include('layouts.footer')  <!--部品化したフッターを呼びだす -->
     </div>
 </body>
 </html>
