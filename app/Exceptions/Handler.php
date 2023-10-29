@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
         });
     }
 
-    // ↓セッションタイムアウト時はログインページにリダイレクトさせる措置
+    // ↓ セッションタイムアウト時はログインページにリダイレクトさせる措置
     public function render($request, Throwable $exception) {
  
         if ($exception instanceof TokenMismatchException) {
