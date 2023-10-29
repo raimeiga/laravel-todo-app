@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
      Authファサードは、クラスをインスタンス化しなくても、
      現在ログイン中のユーザー（Userモデルのインスタンス）を取得できる。
 */
-
 class GoalController extends Controller
 {
     /**
