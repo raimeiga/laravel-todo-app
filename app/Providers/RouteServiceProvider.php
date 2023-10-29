@@ -17,7 +17,10 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/';   /* ← 「'/'」なので、ログイン後にトップページにリダイレクトする 
+                                     正確には、URL（パス）に'/'を設定したルーティング設定で動く
+                                    「'/home'」なら,URL（パス）に'home'を設定したルーティング設定で動く
+                            　 */
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
