@@ -20,8 +20,8 @@ return new class extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
             $table->text('content');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('goal_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();  // 　←外部キーを設定したので、モデルファイルにリレーションシップの設定を想起せよ
+            $table->foreignId('goal_id')->constrained()->cascadeOnDelete();  // 　←外部キーを設定したので、モデルファイルにリレーションシップの設定を想起せよ
             $table->boolean('done')->default(false);    
             $table->timestamps();
         });
