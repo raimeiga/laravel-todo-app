@@ -20,12 +20,12 @@ class GoalController extends Controller
      */
     public function index()
     {
-        $goals = Auth::user()->goals;  // ←現在ログイン中のユーザーが持つ目標をすべて取得　 ↑（上の方）にAuthファサードの使用宣言をしているため。
- 
+        $goals = Auth::user()->goals;  /* ←現在ログイン中のユーザーが持つ目標をすべて取得　 ↑（上の方）にAuthファサードの使用宣言をしているため。
+                                           ログアウト状態では、user（現在ログイン中のユーザー）が取得できずにnullとなり、エラーがでるので、
+                                           ルーティングファイルに ->middleware('auth');を追記してエラーを防ぐ
+                                       */
         return view('goals.index', compact('goals'));
     }
-
-    
 
     /**
      * Store a newly created resource in storage.
