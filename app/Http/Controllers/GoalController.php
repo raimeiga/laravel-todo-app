@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;  
 /* ↑ Authファサードを利用することで、「現在ログイン中のユーザー」を取得
-     Authファサードは、クラスをインスタンス化しなくても、
+     Authファサードは、クラスをインスタンス化しなくても、Auth::user()を記述することで、
      現在ログイン中のユーザー（Userモデルのインスタンス）を取得できる。
 */
 class GoalController extends Controller
