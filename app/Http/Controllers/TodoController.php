@@ -7,58 +7,27 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+{    
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Goal $goal) {
     {
-        //
-    }
+        $request->validate([
+            'content' => 'required',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Todo  $todo
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Todo $todo)
-    {
-        //
-    }
+        $todo = new Todo();
+        $todo->content = $request->input('content');
+        $todo->user_id = Auth::id();
+        $todo->goal_id = $goal->id;
+        $todo->done = false;
+        $todo->save();        
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Todo  $todo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Todo $todo)
-    {
-        //
+        return redirect()->route('goals.index');
     }
 
     /**
