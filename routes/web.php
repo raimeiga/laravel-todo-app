@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoalController;
+use App\Http\Controllers\TodoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,6 @@ Route::resource('goals', GoalController::class)->only(['index', 'store', 'update
 /* ↑ edit_goal.blade.phpとdelete_goal.blade.phpのform情報がrouteヘルパーで各々の$goalインスタンスとともに飛んできて、   
      GoalControllerのupdateとdestroyアクションに、それぞれ$goalsインスタンスとともに渡される
 */
+
+Route::resource('goals.todos', TodoController::class)->only(['store', 'update', 'destroy'])->middleware('auth');
+
