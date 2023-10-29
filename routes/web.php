@@ -20,14 +20,18 @@ use App\Http\Controllers\GoalController;
    アクセスするURLは、localhost/laravel-todo-app/public の次にくるパス名を決定し、記述。
    このURLにアクセスしたときは〇〇コントローラの□□アクションを実行する、と設定される
    ↓だったらlocalhost/laravel-todo-app/public/ を指定している（publicの後に「/」を設定している）*/
-Route::get('/', [GoalController::class, 'index']);
-
+Route::get('/', [GoalController::class, 'index'])->middleware('auth');
+                  /* middleware()メソッド＝引数として渡すエイリアス（別名、あだ名）により、その前処理の内容を決定
+                     auth＝ユーザーがログイン済みであることを確認するエイリアス。（laravel基礎「28.3 認可の実装方法」に詳細）                     
+　　　　　　　　　　　middlewareとその引数に'auth'を追記しないと、コントローラでuserが読み込まれずエラーになる
+　　　　　　　　　　　追記しておけば、未ログインの場合、デフォルトではログインページ（/login）にリダイレクトされる。
+                  */
 Auth::routes();
 
 // ↓ localhost/laravel-todo-app/public/home を指定している。
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('goals', GoalController::class)->only(['index', 'store', 'update', 'destroy']);
+Route::resource('goals', GoalController::class)->only(['index', 'store', 'update', 'destroy'])->middleware('auth');
 /* ↑ edit_goal.blade.phpとdelete_goal.blade.phpのform情報がrouteヘルパーで各々の$goalインスタンスとともに飛んできて、   
      GoalControllerのupdateとdestroyアクションに、それぞれ$goalsインスタンスとともに渡される
 */
