@@ -43,6 +43,10 @@ class User extends Authenticatable
     ];
 
     public function goals() {
-        return $this->hasMany(Goal::class);
+        return $this->hasMany(Goal::class); //← goalsテーブルとのリレーションシップを設定
     }
+
+    public function todos() {
+        return $this->hasMany(Todo::class); //← todosテーブルとのリレーションシップを設定
+    }   
 }
