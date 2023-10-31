@@ -1,7 +1,7 @@
 <!-- 
 認証機能　ログインのページ 
 このファイルは、Laravel UIとBootstrapをインストールし、認証機能作成と同時にインストールしたもの
-https://terakoya.sejuku.net/programs/88/chapters/1057
+「LaravelでToDoアプリを作ろう」
 3.4 Bootstrapと認証機能用の各種ファイルをインストール 
 -->
 
