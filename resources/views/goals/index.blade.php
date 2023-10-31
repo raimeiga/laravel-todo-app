@@ -15,6 +15,9 @@
  
          <!-- 目標の追加用モーダル -->
          @include('modals.add_goal')  
+
+         <!-- タグの追加用モーダル -->
+         @include('modals.add_tag')
  
          <!-- ↓ data-bs-toggle属性やdata-bs-target属性はBootstrapでモーダルなどを実装するときのお作法 
                 モーダルを実装するときはdata-bs-toggle属性に"modal"を指定　
@@ -25,7 +28,12 @@
                  <div class="d-flex align-items-center">
                      <span class="fs-5 fw-bold">＋</span>&nbsp;目標の追加
                  </div>
-             </a>          
+             </a>
+             <a href="#" class="ms-4 link-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#addTagModal">
+                 <div class="d-flex align-items-center">
+                     <span class="fs-5 fw-bold">＋</span>&nbsp;タグの追加
+                 </div>
+             </a>         
          </div>   
          <div class="row row-cols-1 row row-cols-md-2 row-cols-lg-3 g-4">                         
                  @foreach ($goals as $goal)   <!--変数$goalsは、Goalコントローラのindexアクションから渡された「現在ログイン中のユーザーが持つすべての目標」 -->
