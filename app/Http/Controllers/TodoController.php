@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Todo;
 use App\Models\Goal;   
 /* ↑ AppフォルダのModelsフォルダのGoal.php（モデルのファイル）を使うよ!と宣言
-     宣言することで、このファイル内でGoalと記述するだけでGoalクラスを呼び出せるようになる?
+     宣言することで、このファイル内でGoalと記述するだけでGoalクラスを呼び出せるようになる
 */
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
