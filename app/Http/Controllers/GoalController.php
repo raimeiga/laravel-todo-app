@@ -23,7 +23,8 @@ class GoalController extends Controller
                                            ログアウト状態では、user（現在ログイン中のユーザー）が取得できずにnullとなり、エラーがでるので、
                                            ルーティングファイルに ->middleware('auth');を追記してエラーを防ぐ
                                        */
-        return view('goals.index', compact('goals'));
+        $tags = Auth::user()->tags;
+        return view('goals.index', compact('goals', 'tags'));
     }
 
     /**
