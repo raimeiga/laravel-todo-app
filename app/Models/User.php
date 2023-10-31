@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function todos() {
         return $this->hasMany(Todo::class); //← todosテーブルとのリレーションシップを設定
     }   
+
+    public function tags() {
+        return $this->hasMany(Tag::class);
+    }   
 }
