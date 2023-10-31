@@ -1,3 +1,4 @@
+<!-- タグの編集用モーダル -->
 <div class="modal fade" id="editTagModal" tabindex="-1" aria-labelledby="editTagModalLabel">
      <div class="modal-dialog">
          <div class="modal-content">

@@ -1,3 +1,4 @@
+<!-- タグの削除用モーダル -->
 <div class="modal fade" id="deleteTagModal" tabindex="-1" aria-labelledby="deleteTagModalLabel">
      <div class="modal-dialog">
          <div class="modal-content">
