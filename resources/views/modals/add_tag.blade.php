@@ -26,7 +26,7 @@
                                  <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editTagModal" data-bs-dismiss="modal" data-tag-id="{{ $tag->id }}" data-tag-name="{{ $tag->name }}">{{ $tag->name }}</button>
                                  <!-- ↑ タグ自体を編集用ボタンにしているので、タグをクリックすると、↑「タグの編集用モーダル」edit_tagが開く-->
                                  <button type="button" class="btn-close ms-1" aria-label="削除" data-bs-toggle="modal" data-bs-target="#deleteTagModal" data-bs-dismiss="modal" data-tag-id="{{ $tag->id }}" data-tag-name="{{ $tag->name }}"></button>                                                 
-                                 <!-- ↑ 削除をクリックすると「タグの削除用モーダル」edit_tagが開く -->
+                                 <!-- ↑ 削除をクリックすると「タグの削除用モーダル」delete_tagが開く -->
                              </div>
                          @endforeach 
                      </div>    
