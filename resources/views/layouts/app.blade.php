@@ -37,5 +37,7 @@ https://terakoya.sejuku.net/programs/88/chapters/1057
 
         @include('layouts.footer')  <!--部品化したフッターを呼びだす -->
     </div>
+
+    <script src="{{ asset('/js/script.js') }}"></script>
 </body>
 </html>
