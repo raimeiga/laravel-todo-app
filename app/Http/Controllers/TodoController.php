@@ -37,7 +37,9 @@ class TodoController extends Controller
         $todo->save();        
 
         $todo->tags()->sync($request->input('tag_ids'));
-
+        /* ↑sync()メソッドを使い、「tag_ids」に入ったidがtodoインスタンスと紐づき、tag_todoテーブル（中間テーブル）に保存される
+            この場合、todoモーダル上からチェックを入れたタグのidが「tag_ids」に入るのかな…
+        */
         return redirect()->route('goals.index');
     }
 
@@ -63,7 +65,7 @@ class TodoController extends Controller
         if (!$request->has('done')) {
             $todo->tags()->sync($request->input('tag_ids'));
         };   
-        
+
         return redirect()->route('goals.index');  
     }
 
