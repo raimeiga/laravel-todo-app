@@ -6,7 +6,7 @@
         Bootstrapの仕様上、モーダルの中にモーダルを作成できないので、下記↓(コードのまん中くらい）
         にあるatマークforeach ($tags as $tag)～endforeach内には書かず、foreach文の外に書いている 
  -->
-<!-- タグの削除用モーダル -->
+<!-- タグの削除用モーダルだよ！ -->
 @include('modals.delete_tag')
 
 <div class="modal fade" id="addTagModal" tabindex="-1" aria-labelledby="addTagModalLabel">
