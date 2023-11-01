@@ -13,7 +13,21 @@
                  @method('patch')  
                  <div class="modal-body">
                      <input type="text" class="form-control" name="content" value="{{ $todo->content }}">                                         
-                 </div>
+                     <div class="d-flex flex-wrap">
+                         @foreach ($tags as $tag)                            
+                             <label>  
+                                 <div class="d-flex align-items-center mt-3 me-3">
+                                     @if ($todo->tags()->where('tag_id', $tag->id)->exists())
+                                         <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}" checked>
+                                     @else
+                                         <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}">
+                                     @endif                                    
+                                     <span class="badge bg-secondary ms-1 fw-light">{{ $tag->name }}</span>
+                                 </div>                                                   
+                             </label>                                                       
+                         @endforeach    
+                     </div>              
+                    </div>
                  <div class="modal-footer">
                      <button type="submit" class="btn btn-primary">更新</button>
                  </div>
