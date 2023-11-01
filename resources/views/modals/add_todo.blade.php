@@ -8,7 +8,17 @@
              <form action="{{ route('goals.todos.store', $goal) }}" method="post">
                  @csrf
                  <div class="modal-body">
-                     <input type="text" class="form-control" name="content">                                    
+                     <input type="text" class="form-control" name="content">
+                     <div class="d-flex flex-wrap">
+                         @foreach ($tags as $tag)                            
+                             <label>  
+                                 <div class="d-flex align-items-center mt-3 me-3">
+                                     <input type="checkbox" name="tag_ids[]" value="{{ $tag->id }}">                            
+                                     <span class="badge bg-secondary ms-1">{{ $tag->name }}</span>
+                                 </div>                                                   
+                             </label>                                                       
+                         @endforeach    
+                     </div>                                              
                  </div>
                  <div class="modal-footer">
                      <button type="submit" class="btn btn-primary">登録</button>
