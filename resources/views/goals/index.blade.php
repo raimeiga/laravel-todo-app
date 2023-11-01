@@ -1,5 +1,17 @@
-@extends('layouts.app')
+<!-- このファイルはapp.blade.php（親ビュー）内の@yield('content')の部分のみを記述する子ビュー -->
+
+@extends('layouts.app') <!--　↓　atマークsection(ディレクティブ)とコンビで使用 -->   
  
+ @push('styles')
+     <link rel="stylesheet" href="{{ asset('/css/style.css')  }}" >
+ @endpush
+ 
+ @push('scripts')
+     <script src="{{ asset('/js/script.js') }}"></script>
+ @endpush
+
+ <!-- 親ビュー（layouts/app.blade.php)のatマーク「yield('title')」の部分の具体化（こちらのファイルに切り出し）
+ 　　　コードのトップのatマークextendsというディレクティブを使ってベースとなる親ビューを指定している -->
  @section('content')
      <div class="container h-100"> 
           <!-- ↓ バリデーションに引っかかった場合のエラーメッセージを表示 -->
@@ -13,9 +25,9 @@
              </div>
          @endif
  
-         <!-- 目標の追加用モーダル -->
+         <!-- 目標の追加用モーダル 　　-->
          @include('modals.add_goal')  
-
+            <!-- ↑↓atマークinclude＝他のビューファイルを呼び出すディレクティブ。引数には［フォルダ名+ファイル名の省略形］ -->
          <!-- タグの追加用モーダル -->
          @include('modals.add_tag')
  

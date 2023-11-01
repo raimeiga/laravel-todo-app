@@ -8,7 +8,7 @@
              </div>
              <form action="" method="post" name="editTagForm">
                  @csrf
-                 @method('patch')                                                                    
+                 @method('patch')   
                  <div class="modal-body">
                      <input type="text" class="form-control" name="name" value="">
                  </div>
