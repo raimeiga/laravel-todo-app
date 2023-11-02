@@ -63,7 +63,8 @@
                      <div class="card bg-light">
                          <div class="card-body d-flex justify-content-between align-items-center">
                              <h4 class="card-title ms-1 mb-0">{{ $goal->title }}</h4>  <!-- 更新・削除するデータ goalsテーブルのtitleカラム -->
-                             <div class="d-flex align-items-center">                                 
+                             <div class="d-flex align-items-center">
+                                   <!-- ↓ ToDoの追加ボタン　クリックするとモーダルが開く -->
                                    <a href="#" class="px-2 fs-5 fw-bold link-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#addTodoModal{{ $goal->id }}">＋</a>    
                                   <div class="dropdown">
                                      <a href="#" class="dropdown-toggle px-1 fs-5 fw-bold link-dark text-decoration-none menu-icon" id="dropdownGoalMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">︙</a>                                     

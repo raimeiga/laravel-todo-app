@@ -17,8 +17,10 @@ class GoalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+
+    //トップ画面のmain部分(データの一覧ページ)を表示するためのアクション
+    public function index() 
+    {  
         $goals = Auth::user()->goals;  /* ←現在ログイン中のユーザーが持つ目標をすべて取得　 ↑（上の方）にAuthファサードの使用宣言をしているため。
                                            ログアウト状態では、user（現在ログイン中のユーザー）が取得できずにnullとなり、エラーがでるので、
                                            ルーティングファイルに ->middleware('auth');を追記してエラーを防ぐ
@@ -33,6 +35,8 @@ class GoalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //「+目標の追加」を押した後に開く「目標の追加」モーダルに入力された目標を登録するアクション
     public function store(Request $request)
     {
         $request->validate([
@@ -56,6 +60,9 @@ class GoalController extends Controller
      * @param  \App\Models\Goal  $goal
      * @return \Illuminate\Http\Response
      */
+
+    // ↓ 目標の右側「︙」マーク⇒「編集」クリック後に開く「目標の編集」モーダルに表示された目標を更新するアクション
+    
     public function update(Request $request, Goal $goal)
     {
         $request->validate([

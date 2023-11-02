@@ -1,3 +1,4 @@
+<!-- ToDoの追加用モーダル index.blade.php内のatマークinclude('modals.add_todo') で呼び出す　-->
 <div class="modal fade" id="addTodoModal{{ $goal->id }}" tabindex="-1" aria-labelledby="addTodoModalLabel{{ $goal->id }}">
      <div class="modal-dialog">
          <div class="modal-content">

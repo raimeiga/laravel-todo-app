@@ -23,8 +23,9 @@ class TodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Goal $goal) {  
     
+    // ↓ goal_idの値を保存する必要があるため、引数に$goalを入れて、Goalモデルのインスタンス（$goal）を受け取る
+    public function store(Request $request, Goal $goal) {      
         $request->validate([
             'content' => 'required',
         ]);
@@ -50,6 +51,10 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
      * @return \Illuminate\Http\Response
      */
+
+    /* ↓ goal_idの値を保存する必要があるため、引数に$goalを入れて、Goalモデルのインスタンス（$goal）を受け取る
+       ↓「どのデータを更新するか」という情報が必要なので、引数に$todoを入れて、Todoモデルのインスタンス（$todo）も受け取る
+    */
     public function update(Request $request, Goal $goal, Todo $todo) {
         $request->validate([
             'content' => 'required',

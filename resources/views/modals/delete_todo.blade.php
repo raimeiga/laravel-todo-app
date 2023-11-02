@@ -1,4 +1,5 @@
-<!-- ToDoの削除用モーダル -->
+<!-- ToDoの削除用モーダル index.blade.php内のatマークinclude('modals.delete_todo') で呼び出す-->
+
 <div class="modal fade" id="deleteTodoModal{{ $todo->id }}" tabindex="-1" aria-labelledby="deleteTodoModalLabel{{ $todo->id }}">
      <div class="modal-dialog">
          <div class="modal-content">

@@ -1,4 +1,5 @@
-<!-- ToDoの編集用モーダル -->
+<!-- ToDoの編集用モーダル index.blade.php内のatマークinclude('modals.edit_todo') で呼び出す　-->
+
 <div class="modal fade" id="editTodoModal{{ $todo->id }}" tabindex="-1" aria-labelledby="editTodoModalLabel{{ $todo->id }}">
      <div class="modal-dialog">
          <div class="modal-content">

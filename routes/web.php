@@ -29,6 +29,9 @@ Route::get('/', [GoalController::class, 'index'])->middleware('auth');
 　　　　　　　　　　　追記しておけば、未ログインの場合、デフォルトではログインページ（/login）にリダイレクトされる。
                   */
 Auth::routes();
+/* ↑「Auth::routes……」を記述するだけで、アカウント作成やログイン、ログアウト、パスワードなど、認証機能用のルーティングを一括で設定できる
+     Bootstrapのインストール時に--authオプションをつけて、認証機能用の各種ファイルと同時にインストールしたもの
+*/
 
 // ↓ localhost/laravel-todo-app/public/home を指定している。
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -39,6 +42,7 @@ Route::resource('goals', GoalController::class)->only(['index', 'store', 'update
 */
 
 Route::resource('goals.todos', TodoController::class)->only(['store', 'update', 'destroy'])->middleware('auth');
+
 
 Route::resource('tags', TagController::class)->only(['store', 'update', 'destroy'])->middleware('auth');
 
