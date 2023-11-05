@@ -24,7 +24,9 @@ class TodoController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    // ↓ goal_idの値を保存する必要があるため、引数に$goalを入れて、Goalモデルのインスタンス（$goal）を受け取る
+    // ↓ todosテーブルにgoal_idが外部キーとして設定されているので、goal_idの値を保存する必要がある。
+    //   なので、引数に$goalを入れて、Goalモデルのインスタンス（$goal）を受け取る
+    //　 ルーティングファイルにも、Route::resource('goals.todos'…として、
     public function store(Request $request, Goal $goal) {      
         $request->validate([
             'content' => 'required',
@@ -39,7 +41,7 @@ class TodoController extends Controller
 
         $todo->tags()->sync($request->input('tag_ids'));
         /* ↑sync()メソッドを使い、「tag_ids」に入ったidがtodoインスタンスと紐づき、tag_todoテーブル（中間テーブル）に保存される
-            この場合、todoモーダル上からチェックを入れたタグのidが「tag_ids」に入るのかな…
+            この場合、todoモーダル上からチェックを入れたタグのidが「tag_ids」に入る
         */
         return redirect()->route('goals.index');
     }

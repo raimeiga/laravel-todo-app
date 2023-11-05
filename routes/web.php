@@ -42,7 +42,14 @@ Route::resource('goals', GoalController::class)->only(['index', 'store', 'update
 */
 
 Route::resource('goals.todos', TodoController::class)->only(['store', 'update', 'destroy'])->middleware('auth');
+/*1つのgoalに複数のtodosが属しているので、goal_idの値が決まった後に、それに紐づくtodo_idの値が指定され、
+todoコントローラにgoalのidとtodoのidが渡される。
+*/
 
 
 Route::resource('tags', TagController::class)->only(['store', 'update', 'destroy'])->middleware('auth');
-
+/* URLがtagsなので、ブラウザ上に表示されないけど、tagsのURLは存在する。
+   そのURLを見たい場合は、デべロッパ―ツール開く⇒ネットワーク⇒ブラウザで「+タブの追加」クリックすると、デベロッパツールに
+   いろいろ出てくるので、「すべて」をクリック⇒まん中から下部にかけて、［名前・状態・種類・・・・」の表示がでるから、
+   「名前」欄の数字「６」や「goals」があるので、クリック⇒となりに「ヘッダー・ペイロードなどの表示が出て、URLが出る
+*/

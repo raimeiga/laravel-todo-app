@@ -27,6 +27,12 @@ main要素などページごとに異なるコードのみを子ビュー（inde
 
     <!-- <link rel="stylesheet" href="{{ asset('/css/style.css')  }}" > -->
     @stack('styles') 
+    <!-- ← 子ビュー（index.blade.php)のatマークpush('styles')とコンビ
+     このファイル（親ビュー）の下に、多くのファイル（子ビュー）が存在するため、stackの1行上のlinkでcssが全てのファイルに反映されるが、
+     style.cssに記述したスタイルやscript.jsに記述したイベント処理は、トップページ以外（アカウント作成ページやログインページなど）では使わない。
+     なので、トップページ（index.blade.php＝トップ画面のメイン部分を切り出したファイル)のみに、linkの1行を反映させたい。
+     そこで、linkの1行の代わりに、atマークstack('styles')を記し、index.blade.phpのはじめのほうに、linkの1行を記し、atマークpush～endpushで囲む。
+    -->
 </head>
 
 <body style="padding: 60px 0;">
@@ -42,6 +48,12 @@ main要素などページごとに異なるコードのみを子ビュー（inde
     </div>
 
     <!-- <script src="{{ asset('/js/script.js') }}"></script> -->
-    @stack('scripts')
+    @stack('scripts') 
+    <!-- ← 子ビュー（index.blade.php)のatマークpush('scripts')とコンビ
+     このファイル（親ビュー）の下に、多くのファイル（子ビュー）が存在するため、stackの1行上のlinkでscriptsが全てのファイルに反映されるが、
+     style.cssに記述したスタイルやscript.jsに記述したイベント処理は、トップページ以外（アカウント作成ページやログインページなど）では使わない。
+     なので、トップページ（index.blade.php＝トップ画面のメイン部分を切り出したファイル)のみに、linkの1行を反映させたい。
+     そこで、linkの1行の代わりに、atマークstack('scripts')を記し、index.blade.phpのはじめのほうに、linkの1行を記し、atマークpush～endpushで囲む。
+    -->
 </body>
 </html>

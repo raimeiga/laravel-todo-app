@@ -28,9 +28,10 @@
                                  <button type="button" class="btn-close ms-1" aria-label="削除" data-bs-toggle="modal" data-bs-target="#deleteTagModal" data-bs-dismiss="modal" data-tag-id="{{ $tag->id }}" data-tag-name="{{ $tag->name }}"></button>                                                 
                                  <!-- ↑ 削除をクリックすると「タグの削除用モーダル」delete_tagが開く -->
                                  <!-- ↑ 2つ　Bootstrapの仕様上、モーダルの中にモーダルを作成できないので、foreach文の外（コード上部）に
-                                 　「タグの編集用モーダル」edit_tagとタグの削除用モーダル書く。すると、各ループにおけるモデルのインスタンス（今回の場合は$tag）を
-                                 　　編集・削除用モーダルで活用できないようになる。なので、button1行にHTMLカスタムデータ属性（data-tag-idとdata-tag-name）を書き、
-                                  　 JavaScriptファイルで取得し、そのjavaファイルをapp.blade.phpで読み込む措置をとる
+                                 　  タグの編集用モーダル(edit_tag)とタグの削除用モーダル(delete_tag)を書いてる。すると、foreach文（繰り
+                                 　　返し）による各ループにおけるモデルのインスタンス（今回の場合は$tag）を、編集・削除用モーダルで活用で
+                                 　　きないようになる。なので、button1行にHTMLカスタムデータ属性（data-tag-idとdata-tag-name）を書き、
+                                  　 JavaScriptファイルで取得し、そのjavaファイルをapp.blade.phpで読み込む措置をとる。script.jsも要確認。
                                  -->
                              </div>
                          @endforeach

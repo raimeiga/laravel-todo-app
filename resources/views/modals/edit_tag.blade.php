@@ -8,7 +8,7 @@
              </div>
              <form action="" method="post" name="editTagForm">
                  @csrf
-                 @method('patch')   
+                 @method('patch')  <!--　atマークmethod=（ ）内にGETとPOST以外のHTTPリクエストメソッド(今回はpatch=修正・更新）が使えるようになる -->
                  <div class="modal-body">
                      <input type="text" class="form-control" name="name" value="">
                  </div>

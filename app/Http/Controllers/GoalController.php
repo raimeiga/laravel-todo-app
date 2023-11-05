@@ -25,7 +25,7 @@ class GoalController extends Controller
                                            ログアウト状態では、user（現在ログイン中のユーザー）が取得できずにnullとなり、エラーがでるので、
                                            ルーティングファイルに ->middleware('auth');を追記してエラーを防ぐ
                                        */
-        $tags = Auth::user()->tags;
+        $tags = Auth::user()->tags;  // ←タグをすべて取得する。↓のcompactにtagsを渡さないと、トップ画面の一覧にタグが表示されない（add_tag.blade.phpのforeach ($tags as $tag)での部分でエラーが発生する）
         return view('goals.index', compact('goals', 'tags'));
     }
 
