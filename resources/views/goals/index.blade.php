@@ -13,7 +13,7 @@
      <script src="{{ asset('/js/script.js') }}"></script>
  @endpush
 
- <!-- 親ビュー（layouts/app.blade.php)のatマーク「yield('title')」の部分の具体化（こちらのファイルに切り出し）
+ <!-- 親ビュー（layouts/app.blade.php)のatマーク「yield('content')」の部分の具体化（こちらのファイルに切り出し）
  　　　コードのトップのatマークextendsというディレクティブを使ってベースとなる親ビューを指定している -->
  @section('content')
      <div class="container h-100"> 
